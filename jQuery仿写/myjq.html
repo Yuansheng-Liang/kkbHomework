@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己的jq</title>
+    <script src="./myjq.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+<script>
+
+// 一.实现一个简单的click方法；
+// $(".box").click(function(){
+//     console.log(111);
+// });
+
+// 二.选择器处理；1.多个元素处理（循环）；
+//.box #myid div (正则匹配)
+// $("div").click(()=>{
+//     console.log(111);
+// })
+// console.log($("div"));
+// $("div").click(()=>{
+//     console.log(111);
+// })
+// 2.多个参数处理 :分析参数差异 判断类型、长度；（一个对象及多个对象处理 length）;
+// $(function(){
+//     console.log(111);
+// })
+// $(document.querySelectorAll("div")).click(()=>{
+//     console.log(111);
+// })
+
+// on方法；（多个事件）
+// $("div").on("mouseover    mousedown",()=>{
+//     console.log(111);
+// })
+
+//三、 链式操作 
+// 1.操作对象不变 返还this；
+// $("div").on("click",function(){
+//     console.log(111);
+// }).on("mouseover",function(){
+//     console.log(222);
+// }) 
+// 2.操作对象改变  返还新的jq对象；
+// console.log( $("div").eq(0) );
+// $("div").eq(0).on("click",function(){
+//     console.log(111);
+// })
+// 3.对象回退
+// let res = $("div").eq(0).eq(0).end();
+// console.log(res);
+
+
+// 扩展：立足未来扩展 css 钩子 扩展；
+// let res =  $("div").css("background");
+// console.log(res);
+
+// $("div").css("background","yellow");
+// $("div").css({"background":"blue",width:"300px"});
+
+
+
+// $.cssHooks['wh'] = {
+//     get(ele){
+//         // console.log("get",ele);
+//         return getComputedStyle(ele,null)["width"] + "-" + getComputedStyle(ele,null)["height"];
+//     },
+//     set(ele,newValue){
+//         console.log("set",ele,newValue);
+//         ele.style['width'] = newValue;
+//         ele.style['height'] = newValue;
+//     }
+// }
+// $("div").css("wh","300px");
+// console.log( $("div").css("wh") );
+
+
+$("div").animate({"width": "300px"});
+
+
+</script>
+</html>
