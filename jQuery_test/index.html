@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <button class="btn">giao</button>
+    <div id="d2"></div>
+    <div></div>
+    <script src="./jquery-3.5.1.js"></script>
+    <script>
+        $("#d1, #d2").css("background", "blue");
+        console.log($("#d1, #d2"));
+        let click = function() {
+            $('#d2').css("background", 'red');
+            $("#d1, #d2").animate({"width": 300}, 5000);
+        }
+        $(".btn").click(click);
+        $(document.querySelectorAll("div")).click((e) => {
+            $(e.target).css("background", "green");
+        })
+        // console.log($(click));
+
+    </script>
+</body>
+</html>
